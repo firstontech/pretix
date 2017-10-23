@@ -530,6 +530,7 @@ class OrderCancelDo(EventViewMixin, OrderDetailMixin, AsyncAction, View):
         return _('The order has been canceled.')
 
 
+@method_decorator(xframe_options_exempt, 'dispatch')
 class AnswerDownload(EventViewMixin, OrderDetailMixin, View):
     def get(self, request, *args, **kwargs):
         answid = kwargs.get('answer')
@@ -551,6 +552,7 @@ class AnswerDownload(EventViewMixin, OrderDetailMixin, View):
         return resp
 
 
+@method_decorator(xframe_options_exempt, 'dispatch')
 class OrderDownload(EventViewMixin, OrderDetailMixin, View):
 
     def get_self_url(self):
@@ -646,6 +648,7 @@ class OrderDownload(EventViewMixin, OrderDetailMixin, View):
             return resp
 
 
+@method_decorator(xframe_options_exempt, 'dispatch')
 class InvoiceDownload(EventViewMixin, OrderDetailMixin, View):
 
     def get(self, request, *args, **kwargs):
